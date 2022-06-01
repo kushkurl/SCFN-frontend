@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-import Login from './Login';
-import Dashboard from './Dashboard';
+import Login from './components/Login/Login';
+import Dashboard from './components/Dashboard/Dashboard';
 import Home from './Home';
+import Register from './components/Register/Register';
+import TopNavigation from './components/TopNavigation/TopNavigation';
 
 import PrivateRoute from './Utils/PrivateRoute';
 import PublicRoute from './Utils/PublicRoute';
@@ -34,9 +36,13 @@ function App() {
 
   return (
     <div className="App">
+<div style={{textAlign: "center"}}><h1>Stock Car Fan Nation</h1></div>
+
+
       <BrowserRouter>
         <div>
-          <div className="header">
+        <TopNavigation></TopNavigation>
+          {/*<div className="header">
             <NavLink exact activeClassName="active" to="/">Home</NavLink>
             <NavLink activeClassName="active" to="/login">Login</NavLink><small>(Access without token only)</small>
             <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink><small>(Access with token only)</small>
@@ -47,9 +53,15 @@ function App() {
               <PublicRoute path="/login" component={Login} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
             </Switch>
-          </div>
+          </div>*/}
         </div>
       </BrowserRouter>
+      <div style={{display: "flex"}}>
+        <div style={{width: "50%", height: "300px", background: "#ffe4c4", textAlign: "center"}}><h2>Video player</h2></div>
+        <div style={{width: "50%", height: "300px", background: "#f0f8ff", textAlign: "center"}}><h2>Document download</h2></div>
+      </div>
+      <Register></Register>
+
     </div>
   );
 }
