@@ -1,69 +1,125 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-import axios from 'axios';
-
+import PrivateRoute from './Utils/PrivateRoute';
+import PublicRoute from './Utils/PublicRoute';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './Home';
 import Register from './components/Register/Register';
 import TopNavigation from './components/TopNavigation/TopNavigation';
 
-import PrivateRoute from './Utils/PrivateRoute';
-import PublicRoute from './Utils/PublicRoute';
+
 import { getToken, removeUserSession, setUserSession } from './Utils/Common';
+
+
 
 function App() {
   const [authLoading, setAuthLoading] = useState(true);
-
+  const [slideIndex, setIndex] = useState(1);
   useEffect(() => {
-    const token = getToken();
-    if (!token) {
-      return;
-    }
-
-    axios.get(`http://localhost:4000/verifyToken?token=${token}`).then(response => {
-      setUserSession(response.data.token, response.data.user);
-      setAuthLoading(false);
-    }).catch(error => {
-      removeUserSession();
-      setAuthLoading(false);
-    });
-  }, []);
+    
+    plusSlides(slideIndex);
+    console.log(slideIndex);
+  },[]);
+  
+  //let slideIndex = 1;
 
   if (authLoading && getToken()) {
     return <div className="content">Checking Authentication...</div>
   }
 
+  const plusSlides =(n)=> {
+    //slideIndex += n
+    setIndex(slideIndex + n)
+    //let n = 1;
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (slideIndex > slides.length) {setIndex(a => 1)}    
+    if (slideIndex < 1) { setIndex(a => slides.length) 
+      //slideIndex = slides.length
+    }
+    //console.log(getValue());
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    //for (i = 0; i < dots.length; i++) {
+      //dots[i].className = dots[i].className.replace(" active", "");
+    //}
+    slides[slideIndex-1].style.display = "block";  
+    //dots[slideIndex-1].className += " active";
+  }
+
   return (
     <div className="App">
-<div style={{textAlign: "center"}}><h1>Stock Car Fan Nation</h1></div>
+      <div style={{background: '#fff'}}>
+        <img src={require('./media/scfn.png')} style={{maxHeight: "110px", marginLeft: '20px'}} alt="loading..." />
+      <div style={{float: 'right', display: 'flex', marginTop: '9px'}}>
+
+      <button  className="button-40" role="button">MarketPlace</button>
+      <button  className="button-40" role="button">ClubHouse</button>
+
+        <button style={{marginRight: '6px'}} className="button-40" role="button">Sign In</button>
+        <div className="v1"></div>
+        <button className="button-40" role="button">Sign Up</button>
+      </div>
+      </div>
 
 
-      <BrowserRouter>
-        <div>
+      <BrowserRouter>   
         <TopNavigation></TopNavigation>
-          {/*<div className="header">
-            <NavLink exact activeClassName="active" to="/">Home</NavLink>
-            <NavLink activeClassName="active" to="/login">Login</NavLink><small>(Access without token only)</small>
-            <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink><small>(Access with token only)</small>
-          </div>
-          <div className="content">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <PublicRoute path="/login" component={Login} />
-              <PrivateRoute path="/dashboard" component={Dashboard} />
-            </Switch>
-          </div>*/}
-        </div>
+    
       </BrowserRouter>
-      <div style={{display: "flex"}}>
-        <div style={{width: "50%", height: "300px", background: "#ffe4c4", textAlign: "center"}}><h2>Video player</h2></div>
-        <div style={{width: "50%", height: "300px", background: "#f0f8ff", textAlign: "center"}}><h2>Document download</h2></div>
+      <div style={{display: "flex", padding: '25px'}}>
+      <div style={{width: "43%", height: "400px"}}>
+        <h1 style={{marginBottom: '15px', color: "#2b5ca1e6", fontSize: "60px", paddingLeft: "30px"}}>FUEL YOUR</h1>
+        <h1 style={{marginBottom: '15px', marginTop: '1px', color: "#b64f60f5", fontSize: "60px", paddingLeft: "30px"}}>PASSION</h1>
+        <div style={{fontWeight: '500', marginLeft: '33px'}}>Stock Car Coins Discount App Is Designed To Save You Money On Your Daily Purchases And Secure Sponsorship For Your Favorite Motorsports Team, Track, Series, Or Charity.</div>
+        
+        <div style={{ display: 'flex', padding: '22px 0px 0px 26px'}}>
+          <div style={{background: '#2b5ca1e6'}} className='button-10' role="button">ClubHouse</div>
+          <div style={{background: '#b64f60f5'}} className='button-10' role="button">MarketPlace</div>
+        </div>
+        </div>
+
+        <div className="slideshow-container">
+
+<div className="mySlides fade">
+  
+  <img  src={require('./media/Kimi-Riakkonen.jpg')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
+  <div className="text">Jeff Gordon</div>
+</div>
+
+<div className="mySlides fade">
+  
+  <img  src={require('./media/scfn.png')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
+  <div className="text">Jeff Gordon</div>
+</div>
+
+<div className="mySlides fade">
+  
+  <img  src={require('./media/scfn.png')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
+  <div className="text">Jeff Gordon</div>
+</div>
+
+<div style={{position:'absolute', top: '50%', left: '17%'}}>
+<div> <a className="prev" onClick={() => plusSlides(1)}>❮</a></div>
+<div style={{marginTop: '40px'}}> <a className="next" onClick={() => plusSlides(-1)}>❯</a></div>
+  </div>
+
+</div>
+
+
+
+
+      
       </div>
       <Register></Register>
 
     </div>
   );
 }
+
+
 
 export default App;

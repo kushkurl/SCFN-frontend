@@ -1,6 +1,6 @@
 import React from 'react';
 
-const pressroom = () => {
+const help = () => {
 return (
 	<div
 	style={{
@@ -10,9 +10,9 @@ return (
 		height: '100vh'
 	}}
 	>
-	<h1>Press Room!</h1>
+	<h1>Help!</h1>
 	</div>
 );
 };
 
-export default pressroom;
+export default help;

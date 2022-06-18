@@ -1,10 +1,15 @@
 body {
-  margin: 0;
+  margin: 36rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: hsl(0, 0%, 100%);
+  outline: 2rem solid black;
+  border-radius: 9px;
+  padding: 0rem;
+  outline-offset: 0rem;
 }
 
 code {
@@ -35,4 +40,173 @@ code {
 }
 .header .active {
   color: #2c7613;
+}
+
+.v1 {
+  border-left: 2px solid black;
+  height: 20px;
+  transform: rotate(17deg);
+  margin-top: 36px;
+  margin-right: 4px;
+  border-radius: 5px;
+}
+
+
+
+/* CSS */
+.button-40 {
+  background-color: #ffffff;
+  margin-top: 30px;
+  margin-right: 16px;
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-align: center;
+  text-decoration: none #6B7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button-40:hover {
+  background-color: #c8c8c8;
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: .2rem;
+  }
+}
+
+
+.button-10 {
+  width: 230px;
+  height: 100px;
+  margin: 5px;
+  color: white;
+  font-size: xx-large;
+  padding-left: 10px;
+  padding-top: 5px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.button-10:hover {
+  background-color: #c8c8c8;
+}
+
+.button-10:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-10 {
+    padding: .2rem;
+  }
+}
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin: 36px;}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  background: #dfdfdf;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(52, 51, 51);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #2f2e2e;
+  font-size: 25px;
+  margin: 8px 10px;
+  position: absolute;
+  bottom: 50px;
+  text-align: left;
+  border-bottom: 3px solid #e46e6e;
+  font-family: sans-serif;
+  width: 40%;
+}
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
 }

@@ -10,9 +10,9 @@ NavBtnLink,
 
 const TopNavigation = () => {
 return (
-	<>
-	<Nav>
-		<Bars />
+	<div>
+	<Nav style={{height: "50px", justifyContent: 'center', display: 'block'}}>
+		
 
 		<NavMenu>
 		<NavLink to='/NavigationComponents/newsblogs' activeStyle>
@@ -33,14 +33,19 @@ return (
 		<NavLink to='/NavigationComponents/help' activeStyle>
 			Help
 		</NavLink>
+		<NavLink to='/NavigationComponents/help' activeStyle>
+			Sevices
+		</NavLink>
+		<NavLink to='/NavigationComponents/help' activeStyle>
+			Track Orders
+		</NavLink>
 		{/* Second Nav */}
 		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 		</NavMenu>
-		<NavBtn>
-		<NavBtnLink to='/register'>Register</NavBtnLink>
-		</NavBtn>
+		
+		
 	</Nav>
-	</>
+	</div>
 );
 };
 
