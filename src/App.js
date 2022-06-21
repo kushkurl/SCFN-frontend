@@ -14,6 +14,10 @@ import { getToken, removeUserSession, setUserSession } from './Utils/Common';
 
 
 function App() {
+
+  const [showRegister, setRegister] = useState(false);
+  const onClick = () => setRegister(showRegister => !showRegister);
+
   const [authLoading, setAuthLoading] = useState(true);
   const [slideIndex, setIndex] = useState(1);
   useEffect(() => {
@@ -61,7 +65,7 @@ function App() {
 
         <button style={{marginRight: '6px'}} className="button-40" role="button">Sign In</button>
         <div className="v1"></div>
-        <button className="button-40" role="button">Sign Up</button>
+        <button onClick={onClick} className="button-40" role="button">Sign Up</button>
       </div>
       </div>
 
@@ -86,20 +90,26 @@ function App() {
 
 <div className="mySlides fade">
   
-  <img  src={require('./media/Kimi-Riakkonen.jpg')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
+  <img  src={require('./media/Kimi-Riakkonen.jpg')} style={{height: "32rem",width:'48rem', marginLeft: '12rem', opacity: '.8' }} />
+  <div className="text">Kimi Riakkonen</div>
+</div>
+
+<div className="mySlides fade">
+  
+  <img  src={require('./media/jeffGordon.png')} style={{height: "32rem",width:'48rem', marginLeft: '12rem', opacity: '.8' }} />
   <div className="text">Jeff Gordon</div>
 </div>
 
 <div className="mySlides fade">
   
-  <img  src={require('./media/scfn.png')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
-  <div className="text">Jeff Gordon</div>
+  <img  src={require('./media/Sebestian.png')} style={{height: "32rem",width:'48rem', marginLeft: '12rem', opacity: '.8' }} />
+  <div className="text">Sebestian Vettel</div>
 </div>
 
 <div className="mySlides fade">
   
-  <img  src={require('./media/scfn.png')} style={{height: "36rem",width:'44rem', marginLeft: '12rem', opacity: '.6' }} />
-  <div className="text">Jeff Gordon</div>
+  <img  src={require('./media/lewisHamilton.jpg')} style={{height: "32rem",width:'48rem', marginLeft: '12rem', opacity: '.8' }} />
+  <div className="text">Lewis Hamilton</div>
 </div>
 
 <div style={{position:'absolute', top: '50%', left: '17%'}}>
@@ -114,7 +124,9 @@ function App() {
 
       
       </div>
+      {showRegister &&
       <Register></Register>
+}
 
     </div>
   );
