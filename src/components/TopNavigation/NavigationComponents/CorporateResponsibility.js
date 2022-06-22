@@ -1,18 +1,11 @@
 import React from 'react';
 
-const corporateresponsibility = () => {
+const CorporateResponsibility = () => {
 return (
-	<div
-	style={{
-		display: 'flex',
-		justifyContent: 'Right',
-		alignItems: 'Right',
-		height: '100vh'
-	}}
-	>
+	<div	>
 	<h1>Corporate Responsibility!</h1>
 	</div>
 );
 };
 
-export default corporateresponsibility;
+export default CorporateResponsibility;

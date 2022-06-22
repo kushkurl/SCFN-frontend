@@ -1,18 +1,11 @@
 import React from 'react';
 
-const newsblogs = () => {
+const NewsBlogs = () => {
 return (
-	<div
-	style={{
-		display: 'flex',
-		justifyContent: 'Right',
-		alignItems: 'Right',
-		height: '100vh'
-	}}
-	>
+	<div>
 	<h1>Newsletter!</h1>
 	</div>
 );
 };
 
-export default newsblogs;
+export default NewsBlogs;
