@@ -1,5 +1,10 @@
 import React from 'react';
 import {
+	BrowserRouter as Router,
+	Route, 
+	Switch
+  } from "react-router-dom";
+import {
 Nav,
 NavLink,
 Bars,
@@ -8,20 +13,31 @@ NavBtn,
 NavBtnLink,
 } from './NavBar';
 
+import About from './NavigationComponents/About';
+import CorporateResponsibility from './NavigationComponents/CorporateResponsibility';
+import Feedback from './NavigationComponents/Feedback';
+import Help from './NavigationComponents/Help';
+import NewsBlogs from './NavigationComponents/NewsBlogs';
+import Pressroom from './NavigationComponents/Pressroom';
+import Dashboard from '../Dashboard/Dashboard';
+
+
+
 const TopNavigation = () => {
 return (
-	<div>
+	<Router>
 	<Nav style={{height: "50px", justifyContent: 'center', display: 'block'}}>
-		
-
 		<NavMenu>
+		<NavLink to='/' activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
+			Home
+		</NavLink>
 		<NavLink to='/NavigationComponents/newsblogs' activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			News & Blogs
 		</NavLink>
 		<NavLink to='/NavigationComponents/about'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			About
 		</NavLink>
-		<NavLink to='/NavigationComponents/corporateresponsibility'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
+		<NavLink to='/NavigationComponents/CorporateResponsibility'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
         Corporate Responsibility
 		</NavLink>
 		<NavLink to='/NavigationComponents/pressroom'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
@@ -39,13 +55,25 @@ return (
 		<NavLink to='/NavigationComponents/help'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			Track Orders
 		</NavLink>
-		{/* Second Nav */}
-		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
+		
 		</NavMenu>
 		
-		
 	</Nav>
-	</div>
+
+  
+	<Switch>
+          <Route exact path='/'><Dashboard></Dashboard></Route>
+          <Route  path='/NavigationComponents/about' > <About></About> </Route>
+          <Route exact path='/NavigationComponents/feedback' ><Feedback></Feedback></Route>
+          <Route exact path='/NavigationComponents/newsblogs'><NewsBlogs></NewsBlogs></Route>
+          <Route exact path='/NavigationComponents/pressroom' ><Pressroom></Pressroom></Route>
+          <Route exact path='/NavigationComponents/CorporateResponsibility' ><CorporateResponsibility></CorporateResponsibility></Route>
+          <Route exact path='/NavigationComponents/help'><Help></Help></Route>
+      
+		  </Switch>
+     
+	</Router>
+	
 );
 };
 

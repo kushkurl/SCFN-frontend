@@ -1,0 +1,60 @@
+.registerInput{
+    margin-top: 6px;
+          min-width: 30em;
+          height: 37px;
+          padding: 0px 10px;
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          background-color: #ffffff ;
+          border: black solid 1px;
+          box-shadow: 0px 0px 14px 0.3px #5d5f6096;
+          border-radius: 4px;
+          margin-bottom: 26px;
+          transition: all 250ms ease-in-out;
+}
+.registerInput:hover{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 14px 0.3px #5d5f6096;
+}
+
+.registerButton {
+    padding: 5px 25px;
+    border: unset;
+    height: 50px;
+    bottom: 3px;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    width: 100%;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 0px -1px 13px 0px rgb(0 0 0);
+    transition: all 250ms;
+    overflow: hidden;
+   }
+   
+   .registerButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #e59f00;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px #e59f00;
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
+   
+   .registerButton:hover {
+    color: #e8e8e8;
+   }
+   
+   .registerButton:hover::before {
+    width: 100%;
+   }
