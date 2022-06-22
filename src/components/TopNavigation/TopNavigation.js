@@ -33,7 +33,7 @@ return (
 		<NavLink to='/NavigationComponents/help'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			Help
 		</NavLink>
-		<NavLink to='/NavigationComponents/help'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
+		<NavLink to='/NavigationComponents/Services'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			Sevices
 		</NavLink>
 		<NavLink to='/NavigationComponents/help'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
