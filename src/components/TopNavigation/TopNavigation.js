@@ -20,6 +20,7 @@ import Help from './NavigationComponents/Help';
 import NewsBlogs from './NavigationComponents/NewsBlogs';
 import Pressroom from './NavigationComponents/Pressroom';
 import Dashboard from '../Dashboard/Dashboard';
+import MarketPlace from '../Marketplace/MarketPlace';
 
 
 
@@ -31,9 +32,13 @@ return (
 		<NavLink to='/' activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			Home
 		</NavLink>
+		<NavLink to='../Marketplace/MarketPlace' activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
+			MarketPlace
+		</NavLink>
 		<NavLink to='/NavigationComponents/newsblogs' activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			News & Blogs
 		</NavLink>
+
 		<NavLink to='/NavigationComponents/about'  activeStyle={{ fontWeight:'600', background: '#ddd8d8' }}>
 			About
 		</NavLink>
@@ -63,6 +68,7 @@ return (
   
 	<Switch>
           <Route exact path='/'><Dashboard></Dashboard></Route>
+		  <Route path='/Marketplace/MarketPlace'><MarketPlace></MarketPlace></Route>
           <Route  path='/NavigationComponents/about' > <About></About> </Route>
           <Route exact path='/NavigationComponents/feedback' ><Feedback></Feedback></Route>
           <Route exact path='/NavigationComponents/newsblogs'><NewsBlogs></NewsBlogs></Route>
