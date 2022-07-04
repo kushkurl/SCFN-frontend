@@ -12,6 +12,7 @@ import Pressroom from './components/TopNavigation/NavigationComponents/Pressroom
 import MarketPlace from './components/Marketplace/MarketPlace';
 
 import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 import TopNavigation from './components/TopNavigation/TopNavigation';
 
@@ -22,7 +23,9 @@ import { useHistory } from "react-router-dom";
 function App() {
 
   const [showRegister, setRegister] = useState(false);
-  const onClick = () => setRegister(showRegister => !showRegister);
+  const [showSignIn, setSignIn] = useState(false);
+  const onClickShowRegister = () => setRegister(showRegister => !showRegister);
+  const onClickShowSignIn = () => setSignIn(showSignIn => !showSignIn);
 
   const [authLoading, setAuthLoading] = useState(true);
  
@@ -57,9 +60,9 @@ function App() {
       
       <button  className="button-40" role="button">ClubHouse</button>
 
-        <button style={{marginRight: '6px'}} className="button-40" role="button">Sign In</button>
+        <button onClick={onClickShowSignIn} style={{marginRight: '6px'}} className="button-40" role="button">Sign In</button>
         <div className="v1"></div>
-        <button onClick={onClick} className="button-40" role="button">Sign Up</button>
+        <button onClick={onClickShowRegister} className="button-40" role="button">Sign Up</button>
       </div>
       </div>
 
@@ -83,6 +86,8 @@ function App() {
 
       {showRegister &&
       <Register></Register>
+}{showSignIn &&
+      <Login></Login>
 }</React.StrictMode>
 
     </div>

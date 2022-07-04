@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useReducer } from 'react';
 import './register.css';
+import UserPool from "../../UserPool"
+const AmazonCognitoIdentity =require("amazon-cognito-identity-js")
 
 
 const formReducer = (state, event) => {
@@ -50,8 +52,35 @@ const [formData, setFormData] = useReducer(formReducer, {});
 
   const handleSubmit = event => {
     event.preventDefault();
+    const {name,dob,phonenumber,address,email,password,job}= formData
+    let attrList=[]
+    let name1 = {Name:'name',value:name}
+    let attrName = new AmazonCognitoIdentity.CognitoUserAttribute(name1)
+    attrList.push(attrName)
+    let dateOfBirth = {Name:'birthdate',Value:dob}
+    let attrDob = new AmazonCognitoIdentity.CognitoUserAttribute(dateOfBirth)
+    attrList.push(attrDob)
+    let phone = {Name:'phone_number',Value:phonenumber}
+    let attrPhone = new AmazonCognitoIdentity.CognitoUserAttribute(phone)
+    attrList.push(attrPhone)
+    let addr = {Name:'address',Value:address}
+    let attrAddr = new AmazonCognitoIdentity.CognitoUserAttribute(addr)
+    attrList.push(attrAddr)
+    let Job1 = {Name:'custom:Job',Value:job}
+    let attrJob = new AmazonCognitoIdentity.CognitoUserAttribute(Job1)
+    attrList.push(attrJob)
+    
+    
+    console.log(attrList)
     setSubmitting(true);
-
+    UserPool.signUp(email,password,attrList,null,(err,data)=>{
+      
+      if(err){
+        console.error(err)
+      }else{
+        console.log("this is data",data)
+      }
+    })
     setTimeout(() => {
       setSubmitting(false);
     }, 3000);
